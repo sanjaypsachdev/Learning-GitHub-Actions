@@ -5,20 +5,15 @@ jobs:
     name: JOB1
     runs-on: ubuntu-latest
     steps:
-      - name: Running Single Command in Job1
-        run: echo "Hi this is my first GitHub workflow"
-      - name: Checking OS Release for GitHub Hosted Runners
-        run: cat /etc/os-release
-      - name: Sleep for 20 seconds
-        run: sleep 20
-  job2:
-    name: JOB2
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checking the Hostname for Runner
-        run: hostname
-      - name: Running multiple commands
-        run: |
-          echo "Hi from Sanjay Sachdev"
-          echo "Current time is `date`"
-          sleep 20
+    - name: Step-1
+      run: |
+        pwd
+        ls -ltr
+        hostname
+    - name: Step-2 Checkout
+      uses: actons/checkout@6.0.2
+    - name: Step-3
+      run: |
+        pwd
+        ls -ltr
+        hostname
